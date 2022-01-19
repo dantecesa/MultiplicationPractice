@@ -44,26 +44,10 @@ struct GuessGameView: View {
                     .foregroundColor(.secondary)
                     .keyboardType(.numberPad)
                     .onSubmit {
-                        if currentGame.checkAnswer(forInput: userInput) == true {
-                            alertText = "That's right!"
-                            alertMessage = ""
-                        } else {
-                            alertText = "Nope. The answer was: \(currentGame.possibleAnswers[currentGame.correctAnswerIndex])"
-                            alertMessage = "\(currentGame.multiplicationTable) x \(currentGame.currentMultiplier) = \(currentGame.possibleAnswers[currentGame.correctAnswerIndex])"
-                        }
-                        showAlert = true
-                        userInput = ""
+                        makeGuess()
                     }
                 Button("Submit") {
-                    if currentGame.checkAnswer(forInput: userInput) == true {
-                        alertText = "That's right!"
-                        alertMessage = ""
-                    } else {
-                        alertText = "Nope. The answer was: \(currentGame.possibleAnswers[currentGame.correctAnswerIndex])"
-                        alertMessage = "\(currentGame.multiplicationTable) x \(currentGame.currentMultiplier) = \(currentGame.possibleAnswers[currentGame.correctAnswerIndex])"
-                    }
-                    showAlert = true
-                    userInput = ""
+                    makeGuess()
                 }
                 Spacer()
                 Spacer()
@@ -86,15 +70,7 @@ struct GuessGameView: View {
                 ToolbarItemGroup(placement: .keyboard) {
                     Spacer()
                     Button("Submit") {
-                        if currentGame.checkAnswer(forInput: userInput) == true {
-                            alertText = "That's right!"
-                            alertMessage = ""
-                        } else {
-                            alertText = "Nope. The answer was: \(currentGame.possibleAnswers[currentGame.correctAnswerIndex])"
-                            alertMessage = "\(currentGame.multiplicationTable) x \(currentGame.currentMultiplier) = \(currentGame.possibleAnswers[currentGame.correctAnswerIndex])"
-                        }
-                        showAlert = true
-                        userInput = ""
+                        makeGuess()
                     }
                 }
             }
@@ -121,6 +97,18 @@ struct GuessGameView: View {
                 }
             }
         }
+    }
+    
+    func makeGuess() {
+        if currentGame.checkAnswer(forInput: userInput) == true {
+            alertText = "That's right!"
+            alertMessage = ""
+        } else {
+            alertText = "Nope. The answer was: \(currentGame.possibleAnswers[currentGame.correctAnswerIndex])"
+            alertMessage = "\(currentGame.multiplicationTable) x \(currentGame.currentMultiplier) = \(currentGame.possibleAnswers[currentGame.correctAnswerIndex])"
+        }
+        showAlert = true
+        userInput = ""
     }
 }
 
