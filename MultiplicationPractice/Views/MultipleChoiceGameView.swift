@@ -28,7 +28,8 @@ struct MultipleChoiceGameView: View {
     
     var body: some View {
         ZStack {
-            LinearGradient(colors: [.green, .blue], startPoint: .top, endPoint: .bottom).ignoresSafeArea()
+            LinearGradient(colors: [.green, .blue], startPoint: .top, endPoint: .bottom)
+                .ignoresSafeArea()
             VStack (spacing: 20) {
                 Spacer()
                 Text("What is \(currentGame.multiplicationTable) x \(currentGame.currentMultiplier)?")
@@ -47,11 +48,12 @@ struct MultipleChoiceGameView: View {
                         showAlert = true
                     }, label: {
                         Text("\(currentGame.possibleAnswers[index])").font(.title2)
-                    }).padding(30)
-                        .frame(width: 200, height: 60)
-                        .background(.thinMaterial)
-                        .foregroundColor(.secondary)
-                        .clipShape(Capsule())
+                            .padding(30)
+                            .frame(width: 200, height: 60)
+                            .background(.thinMaterial)
+                            .foregroundColor(.secondary)
+                            .clipShape(Capsule())
+                    })
                 }
                 Spacer()
                 Spacer()

@@ -113,9 +113,9 @@ struct GuessGameView: View {
                         .font(.title2)
                         .foregroundColor(.white)
                     Button("Try again") {
-                        self.mode.wrappedValue.dismiss()
-                        showScoreScreen = false
                         currentGame.reset()
+                        showScoreScreen = false
+                        self.mode.wrappedValue.dismiss()
                     }
                     Spacer()
                 }
