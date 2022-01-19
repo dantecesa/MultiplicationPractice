@@ -32,6 +32,7 @@ class Game: ObservableObject {
     }
     
     func loadNextQuestion() {
+        currentQuestion += 1
         for _ in 0...2 {
             possibleAnswers.insert(Int.random(in: 0...100), at: 0)
         }
@@ -43,10 +44,8 @@ class Game: ObservableObject {
     func checkAnswer(forIndex index: Int) -> Bool {
         if index == correctAnswerIndex {
             numCorrect += 1
-            currentQuestion += 1
             return true
         } else {
-            currentQuestion += 1
             return false
         }
     }

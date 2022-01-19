@@ -57,7 +57,7 @@ struct MultipleChoiceGameView: View {
                 }
                 Spacer()
                 Spacer()
-                    .navigationTitle("\(currentGame.currentQuestion + 1)/\(currentGame.numberOfQuestions)")
+                    .navigationTitle("\(currentGame.currentQuestion)/\(currentGame.numberOfQuestions)")
                     .navigationBarTitleDisplayMode(.inline)
             }.alert(alertText, isPresented: $showAlert) {
                 Button("OK") {
