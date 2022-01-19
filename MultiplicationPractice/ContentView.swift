@@ -21,11 +21,19 @@ struct ContentView: View {
             List {
                 Section {
                     Stepper("Pick Number: \(multiplicationTable)", value: $multiplicationTable, in: 2...12)
-                    Picker("Number of questions", selection: $selectedNumQuestions) {
-                        ForEach(numQuestions, id:\.self) { number in
-                            Text("\(number)")
-                        }
-                    }.pickerStyle(.automatic)
+                    NavigationLink {
+                        Form {
+                            Picker("How many questions?", selection: $selectedNumQuestions) {
+                                ForEach(numQuestions, id:\.self) { number in
+                                    Text("\(number)")
+                                }
+                            }
+                            .pickerStyle(.inline)
+                            .navigationBarTitleDisplayMode(.inline)
+                        }.navigationTitle("Number of Questions")
+                    } label: {
+                        Text("Number of Questions")
+                    }
                     Picker("Difficulty", selection: $selectedDifficulty) {
                         ForEach(0..<difficulty.count) { index in
                             Text(difficulty[index])
