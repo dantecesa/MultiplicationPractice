@@ -41,6 +41,7 @@
 		6B46E80227969572000F07F0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				6B7946AF279609E10011569D /* ContentView.swift */,
 				6BD2B35B27960F75008EC951 /* MultipleChoiceGameView.swift */,
 				6B7946BB27960BB50011569D /* GuessGameView.swift */,
 			);
@@ -75,7 +76,6 @@
 			isa = PBXGroup;
 			children = (
 				6B7946AD279609E10011569D /* MultiplicationPracticeApp.swift */,
-				6B7946AF279609E10011569D /* ContentView.swift */,
 				6B46E80327969576000F07F0 /* Models */,
 				6B46E80227969572000F07F0 /* Views */,
 				6B7946B1279609E20011569D /* Assets.xcassets */,
